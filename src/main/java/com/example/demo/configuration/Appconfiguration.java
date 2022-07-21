@@ -1,15 +1,17 @@
-package com.example.demo;
+package com.example.demo.configuration;
 
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-
-import java.util.Optional;
-import java.util.UUID;
+import org.springframework.context.annotation.PropertySource;
 
 @Configuration
 @ComponentScan(basePackages = {"com.example.demo.Order", "com.example.demo.vocher", "com.example.demo.configuration"})
+
+@PropertySource(value = "application.yaml", factory = YamlPropertiesFactory.class)
+@EnableConfigurationProperties
 public class Appconfiguration {
 
     @Bean(initMethod = "init")
