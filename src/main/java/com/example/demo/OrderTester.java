@@ -1,9 +1,14 @@
 package com.example.demo;
 
+import org.apache.commons.logging.Log;
 import com.example.demo.Order.OrderItem;
 import com.example.demo.Order.OrderProperties;
 import com.example.demo.Order.OrderService;
 import com.example.demo.configuration.Appconfiguration;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.boot.ansi.AnsiOutput;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.util.Assert;
 
@@ -13,7 +18,9 @@ import java.util.List;
 import java.util.UUID;
 
 public class OrderTester {
+    private static final Logger logger = LoggerFactory.getLogger(OrderTester.class);
     public static void main(String[] args) {
+        AnsiOutput.setEnabled(AnsiOutput.Enabled.ALWAYS);
         var applicationContext = new AnnotationConfigApplicationContext(Appconfiguration.class);
 
         /*
@@ -24,7 +31,7 @@ public class OrderTester {
         System.out.println("version : " + description);
         */
         var orderProperties = applicationContext.getBean(OrderProperties.class);
-        System.out.println("version : " + orderProperties.getVersion());
+        logger.info("version => {}", orderProperties.getVersion());
 
         var customerId = UUID.randomUUID();
         var orderService = applicationContext.getBean(OrderService.class);

@@ -4,6 +4,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/*
 class A{
     private final B b;
 
@@ -34,9 +35,11 @@ class CircularConfig{
     }
 }
 
+ */
+
 public class CircularDepTester {
     public static void main(String[] args) {
-        new AnnotationConfigApplicationContext(CircularConfig.class);
+        //new AnnotationConfigApplicationContext(CircularConfig.class);
     }
 
 

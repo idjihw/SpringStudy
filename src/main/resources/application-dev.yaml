@@ -1,3 +1,4 @@
+
 kdt:
   version: "v1.0"
   minimum-order-amount: 1
@@ -6,7 +7,7 @@ kdt:
     - b
     - c
     - d
-  description: |
-    line 1 hello world
-    line 2 line2
-    line 3 line3
+    description: |
+      line 1 hello world
+      line 2 line2
+      line 3 line3
